@@ -29,7 +29,7 @@ public class UserInfoRequest {
     /**
      * 年龄
      */
-    @NotBlank(message = "年龄不能为空")
+    @NotNull(message = "年龄不能为空")
     @Min(value = 0, message = "年龄不能小于0岁")
     @Max(value = 120, message = "年龄不能大于120岁")
     private Integer age;
