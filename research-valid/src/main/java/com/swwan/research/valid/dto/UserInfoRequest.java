@@ -20,29 +20,29 @@ public class UserInfoRequest {
     /**
      * 用户名称
      */
-    @NotBlank(message = "姓名不能为空")
+    @NotBlank(message = "姓名不能为空", groups = BaseValidate.class)
     private String username;
     /**
      * 密码
      */
-    @NotBlank(message = "密码不能为空")
+    @NotBlank(message = "密码不能为空", groups = InsertValidate.class)
     private String password;
 
 
     /**
      * 年龄
      */
-    @NotNull(message = "年龄不能为空")
-    @Min(value = 0, message = "年龄不能小于0岁")
-    @Max(value = 120, message = "年龄不能大于120岁")
+    @NotNull(message = "年龄不能为空", groups = BaseValidate.class)
+    @Min(value = 0, message = "年龄不能小于0岁", groups = BaseValidate.class)
+    @Max(value = 120, message = "年龄不能大于120岁", groups = BaseValidate.class)
     private Integer age;
 
     /**
      * 状态
      */
     @NotBlank
-    @CaseCheck(value = CaseMode.UPPER, message = "状态必须为大写字母")
-    @InDictionaryCheck(value = DictCode.数据状态, message = "状态输入不正确")
+    @CaseCheck(value = CaseMode.UPPER, message = "状态必须为大写字母", groups = {InsertValidate.class})
+    @InDictionaryCheck(value = DictCode.数据状态, message = "状态输入不正确", groups = InsertValidate.class)
     private String status;
     /**
      * 性别
@@ -53,8 +53,8 @@ public class UserInfoRequest {
     /**
      * 邮箱
      */
-    @NotBlank(message = "邮箱不能为空")
-    @Email(message = "邮箱格式不正确")
+    @NotBlank(message = "邮箱不能为空", groups = UpdateValidate.class)
+    @Email(message = "邮箱格式不正确", groups = UpdateValidate.class)
     private String mail;
 
     /**
@@ -74,4 +74,23 @@ public class UserInfoRequest {
     private String update;
 
     private String updateTime;
+
+    /**
+     * 基础的校验接口，标识着所有操作都需要校验的字段
+     */
+    public interface BaseValidate {
+    }
+
+    /**
+     * 修改的校验接口
+     * 继承自BaseValidate 也就是说指定为这个组的时候,在满足当前足校验规则的同时，还得满足 base 接口
+     */
+    public interface UpdateValidate extends BaseValidate {
+    }
+
+    /**
+     * 增加的校验接口
+     */
+    public interface InsertValidate extends UpdateValidate {
+    }
 }

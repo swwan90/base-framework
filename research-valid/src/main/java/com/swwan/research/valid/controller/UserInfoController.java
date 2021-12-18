@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserInfoController {
 
     @PostMapping("/add")
-    public void add(@Validated @RequestBody UserInfoRequest userInfoRequest) {
+    public void add(@Validated(UserInfoRequest.BaseValidate.class) @RequestBody UserInfoRequest userInfoRequest) {
         log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
     }
 
