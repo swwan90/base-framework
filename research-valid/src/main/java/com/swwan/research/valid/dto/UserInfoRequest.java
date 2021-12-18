@@ -1,7 +1,9 @@
 package com.swwan.research.valid.dto;
 
+import com.swwan.research.common.dto.DictCode;
 import com.swwan.research.common.utils.validator.CaseCheck;
 import com.swwan.research.common.utils.validator.CaseMode;
+import com.swwan.research.common.utils.validator.InDictionaryCheck;
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -19,14 +21,13 @@ public class UserInfoRequest {
      * 用户名称
      */
     @NotBlank(message = "姓名不能为空")
-    @CaseCheck(value = CaseMode.UPPER, message = "姓名必须为大写字母")
     private String username;
-
     /**
      * 密码
      */
     @NotBlank(message = "密码不能为空")
     private String password;
+
 
     /**
      * 年龄
@@ -36,6 +37,13 @@ public class UserInfoRequest {
     @Max(value = 120, message = "年龄不能大于120岁")
     private Integer age;
 
+    /**
+     * 状态
+     */
+    @NotBlank
+    @CaseCheck(value = CaseMode.UPPER, message = "状态必须为大写字母")
+    @InDictionaryCheck(value = DictCode.数据状态, message = "状态输入不正确")
+    private String status;
     /**
      * 性别
      * TODO 约束取值在枚举中
@@ -53,7 +61,7 @@ public class UserInfoRequest {
      * 电话号码
      */
     @NotBlank(message = "联系方式不能为空")
-    @Pattern(regexp = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$", message = "号码格式不正确!")
+    @Pattern(regexp = "^1(3\\d|4[5-9]|5[0-35-9]|6[2567]|7[0-8]|8\\d|9[0-35-9])\\d{8}$", message = "号码格式不正确!")
     private String phone;
 
     /**
