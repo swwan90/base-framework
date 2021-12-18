@@ -1,9 +1,10 @@
 package com.swwan.research.valid.dto;
 
+import com.swwan.research.common.utils.validator.CaseCheck;
+import com.swwan.research.common.utils.validator.CaseMode;
 import lombok.Data;
 
 import javax.validation.constraints.*;
-import java.util.Date;
 
 /**
  * 用户信息请求
@@ -18,6 +19,7 @@ public class UserInfoRequest {
      * 用户名称
      */
     @NotBlank(message = "姓名不能为空")
+    @CaseCheck(value = CaseMode.UPPER, message = "姓名必须为大写字母")
     private String username;
 
     /**

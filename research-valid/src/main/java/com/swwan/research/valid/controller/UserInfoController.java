@@ -24,4 +24,14 @@ public class UserInfoController {
     public void add(@Validated @RequestBody UserInfoRequest userInfoRequest) {
         log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
     }
+
+    @PostMapping("/test/exception/print")
+    public void printExceptionMessage() {
+        String s = "Hello world";
+        try {
+            Integer i = Integer.valueOf(s);
+        } catch (NumberFormatException e) {
+            log.error("Failed to format {}", s);
+        }
+    }
 }
