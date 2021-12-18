@@ -1,7 +1,9 @@
 package com.swwan.research.valid.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.*;
 import java.util.Date;
@@ -13,6 +15,8 @@ import java.util.Date;
  * @date 2021/12/18 - 15:12
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class UserInfoResponse {
 

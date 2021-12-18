@@ -3,7 +3,9 @@ package com.swwan.research.valid.controller;
 import cn.hutool.json.JSONUtil;
 import com.swwan.research.common.base.BaseResponse;
 import com.swwan.research.common.base.ValidateGroup;
+import com.swwan.research.common.utils.response.ResponseUtils;
 import com.swwan.research.valid.dto.UserInfoRequest;
+import com.swwan.research.valid.dto.UserInfoResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +36,7 @@ public class UserInfoController {
     }
 
     @PostMapping("/add2")
-    public ResponseEntity<BaseResponse> add2(@Validated(ValidateGroup.Base.class) @RequestBody UserInfoRequest userInfoRequest, BindingResult bindingResult) {
+    public ResponseEntity<BaseResponse<UserInfoResponse>> add2(@Validated(ValidateGroup.Base.class) @RequestBody UserInfoRequest userInfoRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
             fieldErrors.forEach(fieldError -> log.error("error field is : {}, message is : {}", fieldError.getField(), fieldError.getDefaultMessage()));
@@ -42,7 +44,7 @@ public class UserInfoController {
         }
 
         log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(ResponseUtils.success(new UserInfoResponse()), HttpStatus.OK);
     }
 
     @PostMapping("/test/exception/print")
