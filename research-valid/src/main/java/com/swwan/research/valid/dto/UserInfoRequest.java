@@ -81,6 +81,6 @@ public class UserInfoRequest {
      * 如果校验时设置了分组，需要加上非空校验，否则无法校验是否为null，也就无法去Address的字段
      */
     @Valid
-    @NotNull(groups = {ValidateGroup.Base.class})
+    @NotNull(message = "地址不能为空", groups = {ValidateGroup.Base.class})
     private Address address;
 }
