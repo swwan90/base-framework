@@ -1,6 +1,7 @@
 package com.swwan.research.valid.controller;
 
 import cn.hutool.json.JSONUtil;
+import com.swwan.research.common.base.ValidateGroup;
 import com.swwan.research.valid.dto.UserInfoRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserInfoController {
 
     @PostMapping("/add")
-    public void add(@Validated(UserInfoRequest.BaseValidate.class) @RequestBody UserInfoRequest userInfoRequest) {
+    public void add(@Validated(ValidateGroup.Base.class) @RequestBody UserInfoRequest userInfoRequest) {
         log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
     }
 
