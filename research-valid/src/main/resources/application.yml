@@ -1,0 +1,8 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: valid-server
+log:
+  path: /searchspace/logs/base-framework/
+  level: debug
