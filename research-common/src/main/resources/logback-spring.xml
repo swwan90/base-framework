@@ -12,7 +12,7 @@
     <springProperty scope="context" name="log.path" source="log.path" defaultValue="/logs/research"/>
     <!-- 日志显示格式 -->
     <springProperty scope="context" name="log.pattern" source="log.pattern"
-                    defaultValue="[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{60} - %msg%n"/>
+                    defaultValue="[%-5level] %d{HH:mm:ss.SSS} [%thread] [%X{traceId}] %logger{60} - %msg%n"/>
 
     <!-- 参数设置 -->
     <!-- 用于说明输出介质，此处说明控制台输出 -->
