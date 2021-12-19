@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.swwan.research.common.base.BaseResponse;
 import com.swwan.research.common.base.ResponseJsonView;
 import com.swwan.research.common.base.ValidateGroup;
+import com.swwan.research.common.utils.response.ResponseDataBody;
 import com.swwan.research.common.utils.response.ResponseUtils;
 import com.swwan.research.valid.dto.UserInfoRequest;
 import com.swwan.research.valid.dto.UserInfoResponse;
@@ -59,6 +60,19 @@ public class UserInfoController {
         userInfoResponse.setPassword("xxx");
         userInfoResponse.setMail("xxx");
         return  ResponseUtils.success(userInfoResponse);
+    }
+
+    @PostMapping("/add4")
+    @JsonView(ResponseJsonView.Base.class)
+    @ResponseDataBody
+    public UserInfoResponse add4(@Validated(ValidateGroup.Base.class) @RequestBody UserInfoRequest userInfoRequest) {
+//        log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
+
+        UserInfoResponse userInfoResponse = new UserInfoResponse();
+        userInfoResponse.setUsername("xxx");
+        userInfoResponse.setPassword("xxx");
+        userInfoResponse.setMail("xxx");
+        return  userInfoResponse;
     }
 
     @PostMapping("/test/exception/print")
