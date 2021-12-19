@@ -23,7 +23,7 @@ public class LogInterceptor implements HandlerInterceptor {
         // 如果有上层调用就用上层的ID
         String traceId = request.getHeader(Constants.TRACE_ID);
         if (traceId == null) {
-            traceId = String.valueOf(IdUtil.getSnowflake().nextId());
+            traceId = IdUtil.getSnowflake().nextIdStr();
         }
 
         // 插入traceId
