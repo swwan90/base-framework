@@ -1,11 +1,12 @@
 package com.swwan.research.valid.dto;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.swwan.research.common.base.ResponseJsonView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.*;
 import java.util.Date;
 
 /**
@@ -23,6 +24,7 @@ public class UserInfoResponse {
     /**
      * 用户名称
      */
+    @JsonView(ResponseJsonView.Base.class)
     private String username;
 
     /**

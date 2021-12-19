@@ -1,7 +1,9 @@
 package com.swwan.research.valid.controller;
 
 import cn.hutool.json.JSONUtil;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.swwan.research.common.base.BaseResponse;
+import com.swwan.research.common.base.ResponseJsonView;
 import com.swwan.research.common.base.ValidateGroup;
 import com.swwan.research.common.utils.response.ResponseUtils;
 import com.swwan.research.valid.dto.UserInfoRequest;
@@ -45,6 +47,18 @@ public class UserInfoController {
 
         log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
         return new ResponseEntity<>(ResponseUtils.success(new UserInfoResponse()), HttpStatus.OK);
+    }
+
+    @PostMapping("/add3")
+    @JsonView(ResponseJsonView.Base.class)
+    public BaseResponse<UserInfoResponse> add3(@Validated(ValidateGroup.Base.class) @RequestBody UserInfoRequest userInfoRequest) {
+//        log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
+
+        UserInfoResponse userInfoResponse = new UserInfoResponse();
+        userInfoResponse.setUsername("xxx");
+        userInfoResponse.setPassword("xxx");
+        userInfoResponse.setMail("xxx");
+        return  ResponseUtils.success(userInfoResponse);
     }
 
     @PostMapping("/test/exception/print")
