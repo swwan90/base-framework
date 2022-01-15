@@ -48,6 +48,6 @@ public class ResponseDataBodyAdvice implements ResponseBodyAdvice<Object> {
         if (o instanceof BaseResponse) {
             return o;
         }
-        return ResponseUtils.success(o);
+        return ResponseUtil.success(o);
     }
 }

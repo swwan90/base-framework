@@ -3,7 +3,7 @@
 //import cn.hutool.json.JSONUtil;
 //import com.swwan.research.common.dto.ParamErrorDto;
 //import com.swwan.research.common.utils.response.ResponseDataBody;
-//import com.swwan.research.common.utils.response.ResponseUtils;
+//import com.swwan.research.common.utils.response.ResponseUtil;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -32,7 +32,7 @@
 //    public Object httpMessageNotReadableExceptionHandler(HttpMessageNotReadableException httpMessageNotReadableException) {
 //        log.error("捕获请求参数读取异常：", httpMessageNotReadableException);
 //        // 前端未传递参数，导致读取参数异常
-//        return ResponseUtils.error(BaseStatusCode.ERR_1000);
+//        return ResponseUtil.error(BaseStatusCode.ERR_1000);
 //    }
 //
 //    @ExceptionHandler(BindException.class)
@@ -48,7 +48,7 @@
 //        fieldErrors.forEach(fieldError -> paramErrorDtoList.add(new ParamErrorDto(fieldError.getField(), fieldError.getDefaultMessage())));
 //
 //        log.info("请求参数校验异常信息：{}", JSONUtil.toJsonStr(paramErrorDtoList));
-//        return ResponseUtils.error(BaseStatusCode.ERR_1000, paramErrorDtoList);
+//        return ResponseUtil.error(BaseStatusCode.ERR_1000, paramErrorDtoList);
 //    }
 //
 //    @ExceptionHandler(BaseException.class)
@@ -57,7 +57,7 @@
 //    public Object baseExceptionHandler(BaseException baseException) {
 //        log.error("捕获到业务异常!", baseException);
 //        // 基础的业务异常
-//        return ResponseUtils.error(baseException);
+//        return ResponseUtil.error(baseException);
 //    }
 //
 //    /**
@@ -75,6 +75,6 @@
 //        log.error("exceptionHandler....");
 //        // 所有的  自定义的、已知的异常全部都没有匹配上
 //        // 直接响应响应一个未知错误的提醒
-//        return ResponseUtils.error(BaseStatusCode.ERR_9999);
+//        return ResponseUtil.error(BaseStatusCode.ERR_9999);
 //    }
 //}

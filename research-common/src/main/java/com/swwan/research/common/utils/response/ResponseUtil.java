@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 /**
  * 响应帮助类
  */
-public class ResponseUtils {
+public class ResponseUtil {
 
     /**
      * 响应成功

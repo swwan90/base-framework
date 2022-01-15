@@ -1,7 +1,7 @@
 package com.swwan.research.common.base;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.swwan.research.common.utils.cast.CastUtils;
+import com.swwan.research.common.utils.cast.CastUtil;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
@@ -94,7 +94,7 @@ public class BaseResponse<T> {
         if (null != baseException) {
             this.status = baseException.getError();
             this.msg = baseException.getMsg();
-            this.data = CastUtils.castObject2Type(baseException);
+            this.data = CastUtil.castObject2Type(baseException);
         }
     }
 }

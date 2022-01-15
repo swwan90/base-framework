@@ -6,7 +6,7 @@ import com.swwan.research.common.base.BaseResponse;
 import com.swwan.research.common.base.ResponseJsonView;
 import com.swwan.research.common.base.ValidateGroup;
 import com.swwan.research.common.utils.response.ResponseDataBody;
-import com.swwan.research.common.utils.response.ResponseUtils;
+import com.swwan.research.common.utils.response.ResponseUtil;
 import com.swwan.research.valid.dto.UserInfoRequest;
 import com.swwan.research.valid.dto.UserInfoResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +47,7 @@ public class UserInfoController {
         }
 
         log.info("add() called with parameters => 【userInfoRequest = {}】", JSONUtil.toJsonPrettyStr(userInfoRequest));
-        return new ResponseEntity<>(ResponseUtils.success(new UserInfoResponse()), HttpStatus.OK);
+        return new ResponseEntity<>(ResponseUtil.success(new UserInfoResponse()), HttpStatus.OK);
     }
 
     @PostMapping("/add3")
@@ -59,7 +59,7 @@ public class UserInfoController {
         userInfoResponse.setUsername("xxx");
         userInfoResponse.setPassword("xxx");
         userInfoResponse.setMail("xxx");
-        return  ResponseUtils.success(userInfoResponse);
+        return  ResponseUtil.success(userInfoResponse);
     }
 
     @PostMapping("/add4")

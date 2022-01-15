@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2021/12/18 - 16:57
  */
 @Slf4j
-public class CastUtils {
+public class CastUtil {
 
     @SuppressWarnings("unchecked")
     public static <T> T castObject2Type(Object obj) {
