@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.swwan.research.common.base.BaseResponse;
 import com.swwan.research.common.base.ResponseJsonView;
 import com.swwan.research.common.base.ValidateGroup;
+import com.swwan.research.common.entity.enums.DataStatusEnum;
 import com.swwan.research.common.utils.response.ResponseDataBody;
 import com.swwan.research.common.utils.response.ResponseUtil;
+import com.swwan.research.valid.dto.TestEnumResponse;
 import com.swwan.research.valid.dto.UserInfoRequest;
 import com.swwan.research.valid.dto.UserInfoResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -83,5 +85,20 @@ public class UserInfoController {
         } catch (NumberFormatException e) {
             log.error("Failed to format {}", s);
         }
+    }
+
+    /**
+     * 输出内容：
+     * {
+     *   "status": {
+     *     "code": "xx",
+     *     "description": "dd"
+     *   },
+     *   "name": "xxx"
+     * }
+     */
+    @PostMapping("/test/enum/print")
+    public TestEnumResponse printEnumMessage() {
+        return new TestEnumResponse(DataStatusEnum.NEW, "xxx");
     }
 }
