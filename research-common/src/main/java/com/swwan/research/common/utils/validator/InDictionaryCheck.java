@@ -1,7 +1,6 @@
 package com.swwan.research.common.utils.validator;
 
-import com.swwan.research.common.base.BaseDictCode;
-import com.swwan.research.common.dto.DictCode;
+import com.swwan.research.common.entity.enums.DictCode;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

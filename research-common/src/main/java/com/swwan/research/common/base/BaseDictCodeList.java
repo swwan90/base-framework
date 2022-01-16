@@ -1,6 +1,6 @@
 package com.swwan.research.common.base;
 
-import com.swwan.research.common.dto.DictCodeList;
+import com.swwan.research.common.entity.enums.DictCodeList;
 
 /**
  * 基础字典列表

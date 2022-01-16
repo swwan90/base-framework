@@ -1,6 +1,5 @@
-package com.swwan.research.common.dto;
+package com.swwan.research.common.entity.enums;
 
-import com.sun.org.apache.xerces.internal.dom.PSVIAttrNSImpl;
 import com.swwan.research.common.base.IStatusCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

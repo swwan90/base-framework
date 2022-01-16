@@ -1,7 +1,7 @@
 package com.swwan.research.valid.dto;
 
 import com.swwan.research.common.base.ValidateGroup;
-import com.swwan.research.common.dto.DictCode;
+import com.swwan.research.common.entity.enums.DictCode;
 import com.swwan.research.common.utils.validator.CaseCheck;
 import com.swwan.research.common.utils.validator.CaseMode;
 import com.swwan.research.common.utils.validator.InDictionaryCheck;

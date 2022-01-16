@@ -1,7 +1,7 @@
 //package com.swwan.research.common.base;
 //
 //import cn.hutool.json.JSONUtil;
-//import com.swwan.research.common.dto.ParamErrorDto;
+//import com.swwan.research.common.entity.vo.ParamErrorDto;
 //import com.swwan.research.common.utils.response.ResponseDataBody;
 //import com.swwan.research.common.utils.response.ResponseUtil;
 //import lombok.extern.slf4j.Slf4j;

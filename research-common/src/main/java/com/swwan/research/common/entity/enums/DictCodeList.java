@@ -1,8 +1,9 @@
-package com.swwan.research.common.dto;
+package com.swwan.research.common.entity.enums;
 
 import cn.hutool.core.util.StrUtil;
 import com.swwan.research.common.base.BaseDictCode;
 import com.swwan.research.common.base.BaseDictCodeList;
+import com.swwan.research.common.entity.vo.SelectOptionDto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
