@@ -1,6 +1,4 @@
-package com.swwan.research.demo.perf;
-
-import com.swwan.research.demo.perf.bean.TestCodeData;
+package com.swwan.research.demo.perf.demo01.bean;
 
 import java.util.List;
 import java.util.stream.Collectors;

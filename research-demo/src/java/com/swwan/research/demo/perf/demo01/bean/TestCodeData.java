@@ -1,6 +1,5 @@
-package com.swwan.research.demo.perf.bean;
+package com.swwan.research.demo.perf.demo01.bean;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**

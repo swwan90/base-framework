@@ -1,7 +1,6 @@
-package com.swwan.research.demo.perf;
+package com.swwan.research.demo.perf.demo01.bean;
 
 import cn.hutool.core.collection.CollUtil;
-import com.swwan.research.demo.perf.bean.TestCodeData;
 
 import java.util.List;
 import java.util.Objects;
