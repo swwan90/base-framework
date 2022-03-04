@@ -18,58 +18,56 @@ public class perf02 {
             // 合并逻辑流程
             this.getCityNotNull(city, newDataList);
         } else {
-            if (oldDataList != null && newDataList != null) {
-                List<TestCodeData> oldCollect = oldDataList.stream().filter(p -> {
-                    if (p.getIsHoliday() == 1) {
-                        return true;
-                    }
-                    return false;
+            getCityNull(newDataList, oldDataList);
+        }
+    }
 
-                }).collect(Collectors.toList());
-                List<TestCodeData> newCollect = newDataList.stream().filter(p -> {
-                    if (p.getIsHoliday() == 1) {
-                        return true;
-                    }
-                    return false;
-                }).collect(Collectors.toList());
+    private void getCityNull(List<TestCodeData> newDataList, List<TestCodeData> oldDataList) {
 
-                if (newCollect != null && newCollect.size() > 0 && oldCollect != null && oldCollect.size() > 0) {
-                    for (TestCodeData newPO : newCollect) {
-                        if (newPO.getStartTime() == 0 && newPO.getEndTime() == 12) {
-                            TestCodeData po = oldCollect.stream().filter(p -> p.getStartTime() == 0
-                                    && (p.getEndTime() == 12 || p.getEndTime() == 24)).findFirst().orElse(null);
-                            if (po != null) {
-                                newPO.setCity(po.getCity());
-                            }
-                        } else if (newPO.getStartTime() == 12 && newPO.getEndTime() == 24) {
-                            TestCodeData po = oldCollect.stream().filter(
-                                    p -> (p.getStartTime() == 12 || p.getStartTime() == 0)
-                                            && p.getEndTime() == 24).findFirst().orElse(null);
-                            if (po != null) {
-                                newPO.setCity(po.getCity());
-                            }
-                        } else if (newPO.getStartTime() == 0 && newPO.getEndTime() == 24) {
-                            TestCodeData po = oldCollect.stream().filter(
-                                    p -> p.getStartTime() == 0 && p.getEndTime() == 24).findFirst().orElse(null);
-                            if (po == null) {
-                                po = oldCollect.stream().filter(
-                                        p -> p.getStartTime() == 0 && p.getEndTime() == 12).findFirst().orElse(null);
-                            }
-                            if (po == null) {
-                                po = oldCollect.stream().filter(
-                                        p -> p.getStartTime() == 12 && p.getEndTime() == 24).findFirst().orElse(null);
-                            }
-                            if (po != null) {
-                                newPO.setCity(po.getCity());
-                            }
-                        } else if (newPO.getTimeUnit().equals(Integer.valueOf(1))) {
-                            TestCodeData po = oldCollect.stream().filter(
-                                    e -> e.getTimeUnit().equals(Integer.valueOf(1))).findFirst().orElse(null);
-                            if (po != null) {
-                                newPO.setCity(po.getCity());
-                            }
-                        }
-                    }
+        if (CollUtil.isEmpty(oldDataList) || CollUtil.isEmpty(newDataList)) {
+            return;
+        }
+
+        List<TestCodeData> oldCollect = oldDataList.stream().filter(data -> data.getIsHoliday() == 1).collect(Collectors.toList());
+        List<TestCodeData> newCollect = newDataList.stream().filter(data -> data.getIsHoliday() == 1).collect(Collectors.toList());
+
+        if (CollUtil.isEmpty(newCollect) || CollUtil.isEmpty(oldCollect)) {
+            return;
+        }
+
+        for (TestCodeData newPO : newCollect) {
+            if (newPO.getStartTime() == 0 && newPO.getEndTime() == 12) {
+                TestCodeData po = oldCollect.stream().filter(p -> p.getStartTime() == 0
+                        && (p.getEndTime() == 12 || p.getEndTime() == 24)).findFirst().orElse(null);
+                if (po != null) {
+                    newPO.setCity(po.getCity());
+                }
+            } else if (newPO.getStartTime() == 12 && newPO.getEndTime() == 24) {
+                TestCodeData po = oldCollect.stream().filter(
+                        p -> (p.getStartTime() == 12 || p.getStartTime() == 0)
+                                && p.getEndTime() == 24).findFirst().orElse(null);
+                if (po != null) {
+                    newPO.setCity(po.getCity());
+                }
+            } else if (newPO.getStartTime() == 0 && newPO.getEndTime() == 24) {
+                TestCodeData po = oldCollect.stream().filter(
+                        p -> p.getStartTime() == 0 && p.getEndTime() == 24).findFirst().orElse(null);
+                if (po == null) {
+                    po = oldCollect.stream().filter(
+                            p -> p.getStartTime() == 0 && p.getEndTime() == 12).findFirst().orElse(null);
+                }
+                if (po == null) {
+                    po = oldCollect.stream().filter(
+                            p -> p.getStartTime() == 12 && p.getEndTime() == 24).findFirst().orElse(null);
+                }
+                if (po != null) {
+                    newPO.setCity(po.getCity());
+                }
+            } else if (newPO.getTimeUnit().equals(Integer.valueOf(1))) {
+                TestCodeData po = oldCollect.stream().filter(
+                        e -> e.getTimeUnit().equals(Integer.valueOf(1))).findFirst().orElse(null);
+                if (po != null) {
+                    newPO.setCity(po.getCity());
                 }
             }
         }
