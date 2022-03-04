@@ -18,6 +18,8 @@
     <modules>
         <module>research-common</module>
         <module>research-valid</module>
+        <module>research-db</module>
+        <module>research-demo</module>
     </modules>
 
     <properties>
