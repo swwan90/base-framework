@@ -40,6 +40,13 @@ public class ThreadMdcUtil {
         };
     }
 
+    /**
+     * 设置子线程MDC
+     *
+     * @param runnable 子线程
+     * @param context  主线程MDC的Map
+     * @return Runnable 接口
+     */
     public static Runnable wrap(final Runnable runnable, final Map<String, String> context) {
         return () -> {
             if (context == null) {

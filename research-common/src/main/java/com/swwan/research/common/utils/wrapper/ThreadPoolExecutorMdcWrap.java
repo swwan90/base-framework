@@ -6,6 +6,8 @@ import org.slf4j.MDC;
 import java.util.concurrent.*;
 
 /**
+ * 重写线程池，解决子线程在打印日志的过程中 traceId 丢失的问题
+ *
  * @author swwan
  * @date 2021/12/19 - 22:33
  */

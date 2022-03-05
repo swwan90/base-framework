@@ -19,6 +19,7 @@ public class RestTemplateUtil {
 
     @PostConstruct
     private void init() {
+        // 为RestTemplate添加拦截器
         restTemplate.setInterceptors(Collections.singletonList(new RestTemplateTraceIdInterceptor()));
     }
 
