@@ -1,0 +1,36 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: demo-server
+  datasource:
+    url: jdbc:mysql://yun:8806/coin-exchange?useSSL=false&serverTimezon=GMT%28
+    username: root
+    password: 4NQtxX9xmN2HJO0F
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: yun
+    port: 8879
+    password: 4NQtxX9xmN2HJO0F
+log:
+  path: /searchspace/logs/base-framework/
+  level: debug
+mybatis-plus:
+  # sqlmapper xml文件所在位置（Locations of MyBatis mapper files.）  不过，话说用mp，单表操作基本上就告别mybatis那些传统的mapper.xml文件了。
+  mapper-locations: classpath*:com/swwan/research/**/xml/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
