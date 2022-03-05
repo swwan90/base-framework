@@ -23,7 +23,7 @@ public class ActivityPerf03Controller {
     @Autowired
     private AwardService awardService;
 
-    @PostMapping("/reward")
+    @PostMapping("/reward03")
     public void reward(String userId, String source) {
         AwardStrategyFactory.getInstance().getAwardResult(userId, source);
     }

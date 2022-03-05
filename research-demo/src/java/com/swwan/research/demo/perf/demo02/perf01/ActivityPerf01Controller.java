@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 业务场景描述：比如让你做一个简单的营销拉新活动，这个活动投放到不同的渠道，不同渠道过来的用户奖励不一样。
  * 现假设在头条、微信等渠道都投放了该活动
+ * <p>
+ * 使用函数式接口进行优化
  *
  * @author swwan
  * @date 2022/3/4 - 23:14
@@ -19,7 +21,7 @@ public class ActivityPerf01Controller {
     @Autowired
     private AwardPerf01Service awardService;
 
-    @PostMapping("/reward")
+    @PostMapping("/reward01")
     public void reward(String userId, String source) {
 
         awardService.getRewardResult(userId, source);

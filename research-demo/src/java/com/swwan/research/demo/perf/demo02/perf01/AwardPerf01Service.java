@@ -17,12 +17,14 @@ import java.util.function.BiFunction;
 @Slf4j
 public class AwardPerf01Service {
 
-    private Map<String, BiFunction<String, String, Boolean>> sourceMap = Maps.newHashMap();
+    private static final Map<String, BiFunction<String, String, Boolean>> SOURCE_MAP = Maps.newHashMap();
+//    private static final Map<String, BiPredicate<String, String>> SOURCE_MAP1 = Maps.newHashMap();
 
     @PostConstruct
     private void dispatcher() {
-        sourceMap.put("wx", (userId, source) -> this.wxReward(userId));
-        sourceMap.put("toutiao", (userId, source) -> this.wxReward(userId));
+        SOURCE_MAP.put("wx", (userId, source) -> this.wxReward(userId));
+        SOURCE_MAP.put("toutiao", (userId, source) -> this.wxReward(userId));
+//        SOURCE_MAP1.put("toutiao", (userId, source) -> this.wxReward(userId));
     }
 
     public Boolean toutiaoReward(String userId) {
@@ -36,10 +38,21 @@ public class AwardPerf01Service {
     }
 
     public Boolean getRewardResult(String userId, String source) {
-        BiFunction<String, String, Boolean> result = sourceMap.get(source);
+        BiFunction<String, String, Boolean> result = SOURCE_MAP.get(source);
         if (Objects.nonNull(result)) {
             return result.apply(userId, source);
         }
         return Boolean.FALSE;
     }
+
+    /**
+     * 使用 BiPredicate 类型函数式接口代替 BiFunction
+     */
+//    public Boolean getRewardResult1(String userId, String source) {
+//        BiPredicate<String, String> biPredicate = SOURCE_MAP1.get(source);
+//        if (Objects.nonNull(biPredicate)) {
+//            return biPredicate.test(userId, source);
+//        }
+//        return Boolean.FALSE;
+//    }
 }

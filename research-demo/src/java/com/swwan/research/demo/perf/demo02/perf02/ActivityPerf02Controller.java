@@ -21,7 +21,7 @@ import java.util.Objects;
 @RequestMapping("/activity")
 public class ActivityPerf02Controller {
 
-    @PostMapping("/reward")
+    @PostMapping("/reward02")
     public void reward(String userId, String source) {
         AwardAbstract instance = AwardFactory.getAwardInstance(source);
         if (Objects.nonNull(instance)) {

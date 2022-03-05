@@ -18,10 +18,10 @@ import java.util.Objects;
 @Component
 public class AwardStrategyFactory implements ApplicationContextAware {
 
-    private final static Map<String, AwardStrategy> AWARD_STRATEGY_MAP = Maps.newConcurrentMap();
+    private static final Map<String, AwardStrategy> AWARD_STRATEGY_MAP = Maps.newConcurrentMap();
 
     public static AwardStrategyFactory getInstance() {
-        return CreateFactorySingleton.factory;
+        return CreateFactorySingleton.FACTORY;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class AwardStrategyFactory implements ApplicationContextAware {
      * 静态内部类创建单例工厂对象
      */
     private static class CreateFactorySingleton {
-        private static AwardStrategyFactory factory = new AwardStrategyFactory();
+        private static final AwardStrategyFactory FACTORY = new AwardStrategyFactory();
     }
 
 }
