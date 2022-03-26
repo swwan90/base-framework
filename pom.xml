@@ -20,6 +20,7 @@
         <module>research-valid</module>
         <module>research-db</module>
         <module>research-demo</module>
+        <module>research-design-patterns</module>
     </modules>
 
     <properties>
