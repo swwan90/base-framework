@@ -1,0 +1,27 @@
+package com.swwan.research.design.pattern.structural.decorator.starbuzz.decorator;
+
+import com.swwan.research.design.pattern.structural.decorator.starbuzz.Beverage;
+import com.swwan.research.design.pattern.structural.decorator.starbuzz.CondimentDecorator;
+
+/**
+ * @author swwan
+ * @date 2022/3/27 - 16:53
+ */
+public class Soy extends CondimentDecorator {
+
+    Beverage beverage;
+
+    public Soy(Beverage beverage) {
+        this.beverage = beverage;
+    }
+
+    @Override
+    public double cost() {
+        return 0.15 + beverage.cost();
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription() + ", Soy";
+    }
+}
