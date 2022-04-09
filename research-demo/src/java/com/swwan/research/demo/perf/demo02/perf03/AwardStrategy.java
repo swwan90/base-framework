@@ -14,5 +14,7 @@ public interface AwardStrategy {
     /**
      * 获取策略标识，即不同渠道的来源标识
      */
-    String getSource();
+    default String getSource() {
+        return "default";
+    }
 }
