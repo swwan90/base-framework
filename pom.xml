@@ -21,6 +21,7 @@
         <module>research-db</module>
         <module>research-demo</module>
         <module>research-design-patterns</module>
+        <module>research-bom</module>
     </modules>
 
     <properties>
