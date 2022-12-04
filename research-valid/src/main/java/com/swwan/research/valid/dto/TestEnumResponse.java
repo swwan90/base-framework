@@ -1,6 +1,6 @@
 package com.swwan.research.valid.dto;
 
-import com.swwan.research.common.entity.enums.DataStatusEnum;
+import com.swwan.research.common.pojo.enums.DataStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

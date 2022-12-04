@@ -1,6 +1,6 @@
 package com.swwan.research.common.utils.response;
 
-import com.swwan.research.common.base.BaseResponse;
+import com.swwan.research.common.base.mvc.BaseResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.http.MediaType;

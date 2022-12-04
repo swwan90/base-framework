@@ -1,7 +1,7 @@
 package com.swwan.research.common.utils.validator;
 
-import com.swwan.research.common.entity.enums.DictCode;
-import com.swwan.research.common.entity.enums.DictCodeList;
+import com.swwan.research.common.pojo.enums.DictCode;
+import com.swwan.research.common.pojo.enums.DictCodeList;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

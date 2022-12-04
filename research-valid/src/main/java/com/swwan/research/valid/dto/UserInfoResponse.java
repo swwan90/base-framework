@@ -1,7 +1,7 @@
 package com.swwan.research.valid.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.swwan.research.common.base.ResponseJsonView;
+import com.swwan.research.common.base.mvc.ResponseJsonView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

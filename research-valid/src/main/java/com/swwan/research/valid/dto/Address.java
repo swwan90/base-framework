@@ -1,6 +1,6 @@
 package com.swwan.research.valid.dto;
 
-import com.swwan.research.common.base.ValidateGroup;
+import com.swwan.research.common.base.validate.ValidateGroup;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;

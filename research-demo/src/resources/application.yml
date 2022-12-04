@@ -4,10 +4,17 @@ spring:
   application:
     name: demo-server
   datasource:
-    url: jdbc:mysql://yun:8806/coin-exchange?useSSL=false&serverTimezon=GMT%28
-    username: root
-    password: 4NQtxX9xmN2HJO0F
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.h2.Driver
+  jackson:
+    time-zone: GMT+8
+  sql:
+    init:
+      data-locations: classpath:init.sql
+  #  datasource:
+  #    url: jdbc:mysql://yun:8806/coin-exchange?useSSL=false&serverTimezon=GMT%28
+  #    username: root
+  #    password: 4NQtxX9xmN2HJO0F
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     host: yun
     port: 8879

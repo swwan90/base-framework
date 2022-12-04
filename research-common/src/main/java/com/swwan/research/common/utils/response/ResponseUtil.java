@@ -1,8 +1,8 @@
 package com.swwan.research.common.utils.response;
 
-import com.swwan.research.common.base.BaseException;
-import com.swwan.research.common.base.BaseResponse;
-import com.swwan.research.common.base.BaseStatusCode;
+import com.swwan.research.common.base.enums.BaseStatusCode;
+import com.swwan.research.common.base.mvc.BaseException;
+import com.swwan.research.common.base.mvc.BaseResponse;
 import org.springframework.http.HttpStatus;
 
 /**
