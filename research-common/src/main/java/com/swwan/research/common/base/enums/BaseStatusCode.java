@@ -3,6 +3,8 @@ package com.swwan.research.common.base.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Optional;
+
 /**
  * 基础的状态码
  *
@@ -39,5 +41,9 @@ public enum BaseStatusCode implements IStatusCodeEnum {
     @Override
     public String getDescription() {
         return msg;
+    }
+
+    public static Optional<IEnum<Integer>> of(Integer code) {
+        return Optional.ofNullable(ICodeEnum.parseByCode(BaseStatusCode.class, code));
     }
 }

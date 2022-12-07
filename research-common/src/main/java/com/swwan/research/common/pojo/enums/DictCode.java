@@ -41,20 +41,6 @@ public enum DictCode implements BaseDictCode {
         return null;
     }
 
-    public static DictCode fromValue(String value) {
-        DictCode[] var1 = values();
-        int var2 = var1.length;
-
-        for (int var3 = 0; var3 < var2; ++var3) {
-            DictCode dictCode = var1[var3];
-            if (dictCode.getValue().equals(value)) {
-                return dictCode;
-            }
-        }
-
-        return null;
-    }
-
     @Override
     public String getValue() {
         return this.value;

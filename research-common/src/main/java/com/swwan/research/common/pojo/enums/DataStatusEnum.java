@@ -1,6 +1,9 @@
 package com.swwan.research.common.pojo.enums;
 
+import com.swwan.research.common.base.enums.ICodeEnum;
 import com.swwan.research.common.base.enums.IEnum;
+
+import java.util.Optional;
 
 /**
  * 枚举示例
@@ -33,4 +36,7 @@ public enum DataStatusEnum implements IEnum<String> {
         return name;
     }
 
+    public static Optional<IEnum<String>> of(String code) {
+        return Optional.ofNullable(ICodeEnum.parseByCode(DataStatusEnum.class, code));
+    }
 }

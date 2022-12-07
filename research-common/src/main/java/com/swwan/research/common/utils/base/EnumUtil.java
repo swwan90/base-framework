@@ -3,6 +3,7 @@ package com.swwan.research.common.utils.base;
 import com.swwan.research.common.base.enums.IEnum;
 
 import java.util.EnumSet;
+import java.util.Optional;
 
 /**
  * 枚举工具类 {@link cn.hutool.core.util.EnumUtil}
@@ -35,11 +36,15 @@ public class EnumUtil {
         return null;
     }
 
+    public static <E extends Enum<E>, T> Optional<IEnum<T>> of(Class<E> enumClass, T code) {
+        return Optional.ofNullable(getEnumByCode(enumClass, code));
+    }
+
     /**
      * 根据枚举值获取对应的枚举描述
      *
      * @param enums 枚举对象数组
-     * @param code  枚举值
+     * @param code 枚举值
      * @return 枚举描述
      */
     public static <E extends Enum<E>, T> String getDescriptionByCode(Class<E> enumClass, T code) {
@@ -48,5 +53,9 @@ public class EnumUtil {
             return null;
         }
         return clazz.getDescription();
+    }
+
+    public static <E extends Enum<E>, T> Optional<String> getDescriptionByCodeWithOptional(Class<E> enumClass, T code) {
+        return Optional.ofNullable(getDescriptionByCode(enumClass, code));
     }
 }

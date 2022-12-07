@@ -1,8 +1,12 @@
 package com.swwan.research.common.pojo.enums;
 
+import com.swwan.research.common.base.enums.ICodeEnum;
+import com.swwan.research.common.base.enums.IEnum;
 import com.swwan.research.common.base.enums.IStatusCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.Optional;
 
 /**
  * 扩展的状态码
@@ -26,5 +30,9 @@ public enum UserStatusCode implements IStatusCodeEnum {
     @Override
     public String getDescription() {
         return msg;
+    }
+
+    public static Optional<IEnum<Integer>> of(Integer code) {
+        return Optional.ofNullable(ICodeEnum.parseByCode(UserStatusCode.class, code));
     }
 }

@@ -1,5 +1,6 @@
 package com.swwan.research.common.base.enums;
 
+import java.util.EnumSet;
 import java.util.Objects;
 
 /**
@@ -45,5 +46,27 @@ public interface ICodeEnum<T> {
     @SuppressWarnings("all")
     default boolean equals(ICodeEnum<T> anotherEnum) {
         return this == anotherEnum;
+    }
+
+    /**
+     * 根据code码获取枚举
+     *
+     * @param enumClass 枚举类
+     * @param code 枚举值
+     * @return 枚举对象 {@link IEnum}<{@link T}>
+     */
+    public static <E extends Enum<E>, T> IEnum<T> parseByCode(Class<E> enumClass, T code) {
+        if (null == code) {
+            return null;
+        }
+        EnumSet<E> es = EnumSet.allOf(enumClass);
+        for (E anEnum : es) {
+            if (anEnum instanceof IEnum) {
+                if (((IEnum<T>) anEnum).codeEquals(code)) {
+                    return (IEnum<T>) anEnum;
+                }
+            }
+        }
+        return null;
     }
 }
